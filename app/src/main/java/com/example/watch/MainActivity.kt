@@ -80,12 +80,12 @@ class MainActivity : AppCompatActivity() {
 
         val builder = AppBarConfiguration.Builder(navController.graph)
         val appBarConfiguration = builder.build()
-
+        builder.setOpenableLayout(binding.drawerLayout)
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         binding.bottomNav.setupWithNavController(navController)
 
         NavigationUI.setupWithNavController(binding.navView, navController)
-        builder.setOpenableLayout(binding.drawerLayout)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -98,3 +98,4 @@ class MainActivity : AppCompatActivity() {
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 }
+

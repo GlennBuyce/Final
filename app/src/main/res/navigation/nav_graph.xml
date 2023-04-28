@@ -26,7 +26,11 @@
         android:id="@+id/cardFragment"
         android:name="com.example.watch.CardFragment"
         android:label="fragment_card"
-        tools:layout="@layout/fragment_card" />
+        tools:layout="@layout/fragment_card">
+        <argument
+            android:name="array_id"
+            app:argType="integer"/>
+    </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.watch.FavoritesFragment"

@@ -9,7 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 
 interface API_Interface {
-    @Headers("X-RapidAPI-Key", "9ff43c858dmsh3fc29a0ee0e8e7ap18b24bjsn539d488bfbef", "X-RapidAPI-Host", "moviesdatabase.p.rapidapi.com")
+    @Headers("X-RapidAPI-Key", "9ff43c858dmsh3fc29a0ee0e8e7ap18b24bjsn539d488bfbef", "X-RapidAPI-Host", "moviesdatabase.p.rapidapi.com", "content-type", "application/octet-stream")
 
     @GET("titles")
     fun getTitles() : Call<ArrayList<Titles?>?>? //MAKE A LIST FOR THESE

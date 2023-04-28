@@ -4,16 +4,17 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/favoritesFragment"
-
+            android:icon="@android:drawable/ic_dialog_email"
             android:title="Favorites" />
 
         <item
             android:id="@+id/watchFragment"
-
+            android:icon="@android:drawable/ic_dialog_email"
             android:title="Watch" />
 
         <item
             android:id="@+id/recommendationFragment"
+            android:icon="@android:drawable/ic_dialog_email"
             android:title="Recommended" />
     </group>
 </menu>

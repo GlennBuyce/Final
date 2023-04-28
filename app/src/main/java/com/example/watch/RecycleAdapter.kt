@@ -46,8 +46,8 @@ class RecycleAdapter(val context: Context,  var navController: NavController) : 
 
         init {
             itemView.setOnClickListener {
-                val action = SearchResultFragmentDirections.actionSearchResultFragmentToCardFragment()
-                navController.navigate(action)
+                //val action = SearchResultFragmentDirections.actionSearchResultFragmentToCardFragment()
+                //navController.navigate(action)
             }
         }
 

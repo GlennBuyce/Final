@@ -2,4 +2,50 @@
     <string name="app_name">Watch</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="list">
+        <item>List</item>
+        <item>Most Popular Movies</item>
+        <item>Most Popular Series</item>
+        <item>Top Box Office 200</item>
+        <item>Top Box Office Last Week</item>
+        <item>Top Rated 250</item>
+        <item>Lowest Rated 100</item>
+        <item>Top Rated Series</item>
+    </string-array>
+    <string-array name="genre">
+        <item>Genre</item>
+        <item>Action</item>
+        <item>Adult</item>
+        <item>Adventure</item>
+        <item>Animation</item>
+        <item>Biography</item>
+        <item>Comedy</item>
+        <item>Crime</item>
+        <item>Documentary</item>
+        <item>Drama</item>
+        <item>Family</item>
+        <item>Fantasy</item>
+        <item>Film-Noir</item>
+        <item>Game-Show</item>
+        <item>History</item>
+        <item>Horror</item>
+        <item>Music</item>
+        <item>Musical</item>
+        <item>Mystery</item>
+        <item>News</item>
+        <item>Reality-TV</item>
+        <item>Romance</item>
+        <item>Sci-Fi</item>
+        <item>Short</item>
+        <item>Sport</item>
+        <item>Talk-Show</item>
+        <item>Thriller</item>
+        <item>War</item>
+        <item>Western</item>
+    </string-array>
+    <string-array name="sort">
+        <item>Sort</item>
+        <item>Year Decreasing</item>
+        <item>Year Increasing</item>
+    </string-array>
 </resources>

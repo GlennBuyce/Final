@@ -36,7 +36,7 @@ class SearchResultViewModel() : ViewModel(){
     }
 
     fun getTitlesAPI(){
-        val API = API_Interface.create()
+        val API = API_Interface.create().getTitles()
 
         if(API != null){
             API.enqueue(object : Callback<ArrayList<Titles?>?> {

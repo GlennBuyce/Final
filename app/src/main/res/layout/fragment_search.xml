@@ -22,22 +22,18 @@
         android:layout_marginTop="12dp">
 
         <Spinner
-            android:id="@+id/spinner_1"
+            android:id="@+id/list_spinner"
             android:layout_marginTop="12dp"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            android:layout_width="wrap_content"
+            android:entries="@array/list"/>
 
         <Spinner
-            android:id="@+id/spinner_2"
+            android:id="@+id/genre_spinner"
             android:layout_marginTop="12dp"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
-
-        <Spinner
-            android:id="@+id/spinner_3"
-            android:layout_marginTop="12dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            android:layout_width="wrap_content"
+            android:entries="@array/genre"/>
 
     </LinearLayout>
 
@@ -49,16 +45,18 @@
         android:layout_marginTop="12dp">
 
         <Spinner
-            android:id="@+id/spinner_4"
+            android:id="@+id/sort_spinner"
             android:layout_marginTop="12dp"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            android:layout_width="wrap_content"
+            android:entries="@array/sort"/>
 
-        <Spinner
-            android:id="@+id/spinner_5"
+        <EditText
+            android:id="@+id/year_edit_text"
             android:layout_marginTop="12dp"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            android:layout_width="wrap_content"
+            android:hint="Year"/>
 
     </LinearLayout>
 

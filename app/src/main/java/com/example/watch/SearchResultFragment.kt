@@ -19,6 +19,18 @@ class SearchResultFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var recycleAdapter: RecycleAdapter
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val bundle = arguments
+        if(bundle == null){
+            Log.e("SearchResultFragment", "SearchResultFragment did not receive data")
+            return
+        }
+
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,26 +46,5 @@ class SearchResultFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = recycleAdapter
 
-        val API = API_Interface.create().getTitles()
-
-        if(API != null){
-            API.enqueue(object : Callback<ArrayList<Titles?>?> {
-                override fun onResponse(
-                    call: Call<ArrayList<Titles?>?>,
-                    response: Response<ArrayList<Titles?>?>
-                ) {
-                    if (response?.body() != null){
-                        recycleAdapter.setTitleListItems(response.body() !! as ArrayList<Titles>)
-                    }
-                }
-
-                override fun onFailure(call: Call<ArrayList<Titles?>?>, t: Throwable) {
-                    if (t != null) {
-                        t.message?.let { Log.d("onFailure", it) }
-                    }
-
-                }
-            })
-        }
     }
 }

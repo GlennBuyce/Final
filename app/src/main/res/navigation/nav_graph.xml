@@ -21,6 +21,7 @@
         <action
             android:id="@+id/action_searchResultFragment_to_cardFragment"
             app:destination="@id/cardFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/cardFragment"
@@ -34,7 +35,11 @@
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.watch.FavoritesFragment"
-        android:label="FavoritesFragment" />
+        android:label="FavoritesFragment" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_cardFragment"
+            app:destination="@id/cardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.watch.SettingsFragment"
@@ -42,7 +47,11 @@
     <fragment
         android:id="@+id/watchFragment"
         android:name="com.example.watch.WatchFragment"
-        android:label="WatchFragment" />
+        android:label="WatchFragment" >
+        <action
+            android:id="@+id/action_watchFragment_to_cardFragment"
+            app:destination="@id/cardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/helpFragment"
         android:name="com.example.watch.HelpFragment"
@@ -51,5 +60,9 @@
     <fragment
         android:id="@+id/recommendationFragment"
         android:name="com.example.watch.RecommendationFragment"
-        android:label="RecommendationFragment" />
+        android:label="RecommendationFragment" >
+        <action
+            android:id="@+id/action_recommendationFragment_to_cardFragment"
+            app:destination="@id/cardFragment" />
+    </fragment>
 </navigation>

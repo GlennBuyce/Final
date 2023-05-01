@@ -31,6 +31,11 @@ class SearchFragment : Fragment() {
 
         _binding!!.search.setOnClickListener {
 
+            lateinit var list: String
+            var genre: String? = null
+            var sort: String? = null
+            var year: String? = null
+
             list = when(_binding!!.listSpinner.selectedItem){
                     "Most Popular Movies" ->  "most_pop_movies"
                     "Most Popular Series" -> "most_pop_series"
@@ -48,13 +53,12 @@ class SearchFragment : Fragment() {
             }
             if(genre == "Genre"){ genre = null}
 
-            if(year == null){ year = "1" }
-
             if(list == "BAD"){
                 Toast.makeText(requireContext(), "Please choose a list", Toast.LENGTH_SHORT).show()
             }else{
-            val action = SearchFragmentDirections.actionSearchFragmentToSearchResultFragment()
-            binding.root.findNavController().navigate(action)
+                //val action = SearchFragmentDirections.actionSearchFragmentToSearchResultFragment(list, genre, sort, year)
+                val action = SearchResultFragmentDirections.actionSearchResultFragmentToCardFragment(1)
+                binding.root.findNavController().navigate(action)
             }
         }
 

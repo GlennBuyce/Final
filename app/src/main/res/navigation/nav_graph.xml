@@ -13,14 +13,57 @@
         <action
             android:id="@+id/action_searchFragment_to_searchResultFragment"
             app:destination="@id/searchResultFragment" />
+
+        <argument
+            android:name="list"
+            app:argType="string" />
+
+        <argument
+            android:name="genre"
+            app:argType="string"
+            app:nullable="true"/>
+
+        <argument
+            android:name="sort"
+            app:argType="string"
+            app:nullable="true"/>
+
+        <argument
+            android:name="year"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/searchResultFragment"
         android:name="com.example.watch.SearchResultFragment"
         android:label="SearchResultFragment" >
+        <argument
+            android:name="list"
+            app:argType="String"/>
         <action
             android:id="@+id/action_searchResultFragment_to_cardFragment"
             app:destination="@id/cardFragment" />
+        <argument
+            android:name="list"
+            app:argType="string" />
+
+        <argument
+            android:name="genre"
+            app:argType="string"
+            app:nullable="true"/>
+
+        <argument
+            android:name="sort"
+            app:argType="string"
+            app:nullable="true"/>
+
+        <argument
+            android:name="year"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="pos"
+            app:argType="integer" />
 
     </fragment>
     <fragment
@@ -31,6 +74,9 @@
         <argument
             android:name="array_id"
             app:argType="integer"/>
+        <argument
+            android:name="pos"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"

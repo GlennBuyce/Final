@@ -1,3 +1,10 @@
+/*
+Glenn Buyce
+May 2023
+SER210 Final Project
+Watch
+ */
+
 package com.example.watch
 
 import okhttp3.OkHttpClient
@@ -18,9 +25,9 @@ interface API_Interface {
                   @Query("page") page: String?,
                   @Query("year") year: String?) : Call<Data?>?
 
-    @GET("titles/")
+    @GET("titles/tt0001790/")
     @Headers("X-RapidAPI-Key:9ff43c858dmsh3fc29a0ee0e8e7ap18b24bjsn539d488bfbef", "X-RapidAPI-Host:moviesdatabase.p.rapidapi.com")
-    fun getMoreLikeThisTitles(@Query("info") info: String) : Call<ArrayList<TitlesTable?>?>?
+    fun getMoreLikeThisTitles(@Query("info") info: String) : Call<Data?>?
 
     @GET("titles/")
     @Headers("X-RapidAPI-Key:9ff43c858dmsh3fc29a0ee0e8e7ap18b24bjsn539d488bfbef", "X-RapidAPI-Host:moviesdatabase.p.rapidapi.com")

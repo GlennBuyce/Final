@@ -3,24 +3,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal">
 
     <TextView
         android:id="@+id/SettingsTextBox"
-        android:text="Add Settings"
+        android:text="Press either button to clear the associated list."
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/ClearFavorites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clear Favorites List" />
+        android:text="Clear Favorites List"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/ClearWatch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clear Watch List" />
+        android:text="Clear Watch List"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>

@@ -1,3 +1,9 @@
+/*
+Glenn Buyce
+May 2023
+SER210 Final Project
+Watch
+ */
 package com.example.watch
 
 import android.content.Context

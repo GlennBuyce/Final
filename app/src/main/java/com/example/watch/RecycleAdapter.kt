@@ -1,3 +1,9 @@
+/*
+Glenn Buyce
+May 2023
+SER210 Final Project
+Watch
+ */
 package com.example.watch
 
 import android.content.Context
@@ -34,6 +40,11 @@ class RecycleAdapter(val context: Context,  var navController: NavController) : 
     }
 
     fun setTitleListItems(titleListparam: Data){
+        titleList.addAll(titleListparam.results)
+        notifyDataSetChanged()
+    }
+
+    fun setRecommendationListItems(titleListparam: Data){
         titleList.addAll(titleListparam.results);
         notifyDataSetChanged()
     }

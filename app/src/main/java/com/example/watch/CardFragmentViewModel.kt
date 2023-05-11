@@ -1,3 +1,10 @@
+/*
+Glenn Buyce
+May 2023
+SER210 Final Project
+Watch
+ */
+
 package com.example.watch
 
 import androidx.lifecycle.ViewModel
@@ -6,11 +13,13 @@ import kotlinx.coroutines.launch
 
 class CardFragmentViewModel(val dao: TitlesDao) : ViewModel() {
 
-    fun addTitle(){
+    fun addTitle(title: Result, favorite: Boolean, watch: Boolean){
+        val titletext = title.titleText.text
+        val image = title.primaryImage.url
+        val id = title.id
         viewModelScope.launch {
-            val title = TitlesTable()
-            title.id =
+            val title = TitlesTable(tableIndex = 0, titletext, id, image, favorite, watch)
+            dao.insert(title)
         }
     }
-
 }

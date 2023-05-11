@@ -1,3 +1,9 @@
+/*
+Glenn Buyce
+May 2023
+SER210 Final Project
+Watch
+ */
 package com.example.watch
 
 import android.os.Bundle
@@ -7,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -15,6 +22,9 @@ import com.example.watch.databinding.FragmentCardBinding
 
 class CardFragment : Fragment() {
 
+    private val viewModel: CardFragmentViewModel by activityViewModels {
+        ViewModelFactory((activity?.application as TitlesApplication).database.titlesDao)
+    }
     var title_id : Int = 0
     private var _binding: FragmentCardBinding? = null
     private val binding get() = _binding!!
@@ -38,11 +48,17 @@ class CardFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val dao = TitlesDatabase.getInstance(application).titlesDao
-        val viewModelFactory = ViewModelFactory(dao)
-        val viewModel = ViewModelProvider(
-            this, viewModelFactory).get(CardFragmentViewModel::class.java)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = viewLifecycleOwner
+        //val viewModelFactory = ViewModelFactory(dao)
+        //val viewModel = ViewModelProvider(
+        //    this, viewModelFactory).get(CardFragmentViewModel::class.java)
+        //binding.viewModel = viewModel
+        //binding.lifecycleOwner = viewLifecycleOwner
+        _binding!!.addToFavorite.setOnClickListener {
+            viewModel.addTitle(titleList[title_id], true, false)
+        }
+        _binding!!.addToWatch.setOnClickListener {
+            viewModel.addTitle(titleList[title_id], false, true)
+        }
         return binding.root
     }
 

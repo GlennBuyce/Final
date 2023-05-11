@@ -1,3 +1,9 @@
+/*
+Glenn Buyce
+May 2023
+SER210 Final Project
+Watch
+ */
 package com.example.watch
 
 import androidx.room.ColumnInfo
@@ -8,7 +14,7 @@ import androidx.room.PrimaryKey
 data class TitlesTable(
 
     @PrimaryKey(autoGenerate = true)
-    var tableIndex: Long = 0L,
+    var tableIndex: Int = 0,
 
     @ColumnInfo(name = "Title")
     var title: String,
@@ -25,4 +31,4 @@ data class TitlesTable(
     @ColumnInfo(name = "Watch")
     var watch: Boolean
     )
-//self made not from plugin, may use to consolidate from other data classes... maybe for Dao
+

@@ -1,3 +1,9 @@
+/*
+Glenn Buyce
+May 2023
+SER210 Final Project
+Watch
+ */
 package com.example.watch
 
 import androidx.lifecycle.LiveData
@@ -16,9 +22,9 @@ interface TitlesDao {
     fun delete(titlesTable: TitlesTable)
 
     @Query("SELECT * FROM titles_table WHERE favorite = 1")
-    fun getFavoritesList(): LiveData<ArrayList<TitlesTable>>
+    fun getFavoritesList(): List<TitlesTable>
 
     @Query("SELECT * FROM titles_table WHERE watch = 1")
-    fun getWatchList(): LiveData<ArrayList<TitlesTable>>
+    fun getWatchList(): List<TitlesTable>
 
 }

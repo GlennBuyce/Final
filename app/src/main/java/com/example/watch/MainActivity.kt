@@ -56,16 +56,14 @@ import android.view.MenuItem
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.example.watch.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,12 +77,18 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         val builder = AppBarConfiguration.Builder(navController.graph)
-        val appBarConfiguration = builder.build()
-        builder.setOpenableLayout(binding.drawerLayout)
+        val drawer = binding.drawerLayout
+        builder.setOpenableLayout(drawer)
+        appBarConfiguration = builder.build()
+
+
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         binding.bottomNav.setupWithNavController(navController)
 
         NavigationUI.setupWithNavController(binding.navView, navController)
+
+
+        //setupActionBarWithNavController(navController, appBarConfiguration)
 
     }
 

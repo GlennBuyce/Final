@@ -15,9 +15,10 @@ class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    lateinit var list: String
+    var list: String? = null
     var genre: String? = null
     var sort: String? = null
+    var page: String? = null
     var year: String? = null
 
     override fun onCreateView(
@@ -30,11 +31,6 @@ class SearchFragment : Fragment() {
 
 
         _binding!!.search.setOnClickListener {
-
-            lateinit var list: String
-            var genre: String? = null
-            var sort: String? = null
-            var year: String? = null
 
             list = when(_binding!!.listSpinner.selectedItem){
                     "Most Popular Movies" ->  "most_pop_movies"
@@ -51,13 +47,19 @@ class SearchFragment : Fragment() {
                 "Year Decreasing" -> "year.decr"
                 else -> null
             }
-            if(genre == "Genre"){ genre = null}
+            if(_binding!!.genreSpinner.selectedItem == "Genre"){
+                genre = null
+            }else{
+                genre = _binding!!.genreSpinner.selectedItem as String?
+            }
+
+            page = _binding!!.yearEditText.text.toString()
 
             if(list == "BAD"){
                 Toast.makeText(requireContext(), "Please choose a list", Toast.LENGTH_SHORT).show()
             }else{
-                //val action = SearchFragmentDirections.actionSearchFragmentToSearchResultFragment(list, genre, sort, year)
-                val action = SearchResultFragmentDirections.actionSearchResultFragmentToCardFragment(1)
+                val action = SearchFragmentDirections.actionSearchFragmentToSearchResultFragment(list!!, genre, sort, page, year)
+                //val action = SearchResultFragmentDirections.actionSearchResultFragmentToCardFragment(1)
                 binding.root.findNavController().navigate(action)
             }
         }

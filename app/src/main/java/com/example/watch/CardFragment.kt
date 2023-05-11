@@ -7,36 +7,51 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.watch.databinding.FragmentCardBinding
 
 
 class CardFragment : Fragment() {
 
-    var title_id = 0
+    var title_id : Int = 0
+    private var _binding: FragmentCardBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val bundle = arguments
         if(bundle == null){
             Log.e("Card Fragment", "Card Fragment did not recieve id")
+            return
         }
+        title_id = CardFragmentArgs.fromBundle(bundle).titleId
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_card, container, false)
+        _binding = FragmentCardBinding.inflate(inflater, container, false)
+
+        val application = requireNotNull(this.activity).application
+        val dao = TitlesDatabase.getInstance(application).titlesDao
+        val viewModelFactory = ViewModelFactory(dao)
+        val viewModel = ViewModelProvider(
+            this, viewModelFactory).get(CardFragmentViewModel::class.java)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-          val image: ImageView = view.findViewById(R.id.item_image)
-          Glide.with(requireContext()).load(titleList.get(title_id).imageurl)
-              .apply(RequestOptions().centerCrop())
-              .into(image)
 
+        binding.itemTitle.text = titleList[title_id].titleText.text
+        Glide.with(requireContext()).load(titleList[title_id].primaryImage.url)
+            .apply(RequestOptions().centerCrop())
+            .into(binding.itemImage)
     }
 }

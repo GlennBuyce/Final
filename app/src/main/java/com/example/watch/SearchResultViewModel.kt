@@ -1,15 +1,6 @@
 package com.example.com.example.watch
 
-import android.util.Log
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.watch.API_Interface
-import com.example.watch.Titles
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-
-
+/*
 class SearchResultViewModel() : ViewModel(){
 
     var createTitlesLiveData: MutableLiveData<Titles?> = MutableLiveData()
@@ -36,7 +27,7 @@ class SearchResultViewModel() : ViewModel(){
     }
 
     fun getTitlesAPI(){
-        val API = API_Interface.create().getTitles()
+        val API = API_Interface.create().getTitlesTest()
 
         if(API != null){
             API.enqueue(object : Callback<ArrayList<Titles?>?> {
@@ -45,7 +36,7 @@ class SearchResultViewModel() : ViewModel(){
                     response: Response<ArrayList<Titles?>?>
                 ) {
                     if (response?.body() != null){
-                        recycleAdapter.setTitleListItems(response.body() !! as ArrayList<Titles>)
+                        RecycleAdapter.setTitleListItems(response.body() !! as ArrayList<Titles>)
                     }
                 }
 
@@ -59,4 +50,4 @@ class SearchResultViewModel() : ViewModel(){
         }
     }
 
-}
+}*/

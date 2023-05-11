@@ -1,7 +1,6 @@
 package com.example.watch
 
 import android.content.Context
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,8 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-var titleList : ArrayList<Titles> = ArrayList()
+
+var titleList : ArrayList<Result> = ArrayList()
 
 class RecycleAdapter(val context: Context,  var navController: NavController) : RecyclerView.Adapter<RecycleAdapter.MyViewHolder>() {
 
@@ -33,8 +33,8 @@ class RecycleAdapter(val context: Context,  var navController: NavController) : 
         holder.bind(position)
     }
 
-    fun setTitleListItems(titleListparam: ArrayList<Titles>){
-        titleList = titleListparam;
+    fun setTitleListItems(titleListparam: Data){
+        titleList.addAll(titleListparam.results);
         notifyDataSetChanged()
     }
 
@@ -46,19 +46,21 @@ class RecycleAdapter(val context: Context,  var navController: NavController) : 
 
         init {
             itemView.setOnClickListener {
-                //val action = SearchResultFragmentDirections.actionSearchResultFragmentToCardFragment()
-                //navController.navigate(action)
+                val action = SearchResultFragmentDirections.actionSearchResultFragmentToCardFragment(pos)
+                navController.navigate(action)
             }
         }
-
         fun bind(position:Int){
             pos = position
-            val currTitle = titleList[position]
-            title.text = currTitle.title
-            Glide.with(context).load(currTitle.imageurl)
-                .apply(RequestOptions().centerCrop())
-                .into(image)
+            val currTitle = titleList.get(pos)
+            if(currTitle.titleText != null){
+                title.text = currTitle.titleText.text
+            }
+            if(currTitle.primaryImage != null){
+                Glide.with(context).load(currTitle.primaryImage.url)
+                    .apply(RequestOptions().centerCrop())
+                    .into(image)
+            }
         }
-
     }
 }

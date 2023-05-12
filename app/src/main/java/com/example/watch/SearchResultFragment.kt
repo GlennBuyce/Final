@@ -42,6 +42,7 @@ class SearchResultFragment : Fragment() {
             Log.e("SearchResultFragment", "SearchResultFragment did not receive data")
             return
         }
+        //gathers data from search fragment to call api with
         list = SearchResultFragmentArgs.fromBundle(bundle).list
         genre = SearchResultFragmentArgs.fromBundle(bundle).genre
         sort = SearchResultFragmentArgs.fromBundle(bundle).sort
@@ -59,6 +60,9 @@ class SearchResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        //calls API with the given parameters initialized above and sets the recycler view of the material cards
         recyclerView = view.findViewById(R.id.recyclerview)
         recycleAdapter = RecycleAdapter(requireContext(), Navigation.findNavController(view))
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

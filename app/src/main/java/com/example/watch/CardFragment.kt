@@ -22,9 +22,6 @@ import com.example.watch.databinding.FragmentCardBinding
 
 class CardFragment : Fragment() {
 
-    private val viewModel: CardFragmentViewModel by activityViewModels {
-        ViewModelFactory((activity?.application as TitlesApplication).database.titlesDao)
-    }
     var title_id : Int = 0
     private var _binding: FragmentCardBinding? = null
     private val binding get() = _binding!!
@@ -48,11 +45,11 @@ class CardFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val dao = TitlesDatabase.getInstance(application).titlesDao
-        //val viewModelFactory = ViewModelFactory(dao)
-        //val viewModel = ViewModelProvider(
-        //    this, viewModelFactory).get(CardFragmentViewModel::class.java)
-        //binding.viewModel = viewModel
-        //binding.lifecycleOwner = viewLifecycleOwner
+        val viewModelFactory = ViewModelFactory(dao)
+        val viewModel = ViewModelProvider(
+            this, viewModelFactory).get(CardFragmentViewModel::class.java)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         _binding!!.addToFavorite.setOnClickListener {
             viewModel.addTitle(titleList[title_id], true, false)
         }
@@ -65,6 +62,7 @@ class CardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //populated the material card view with the information from the object given the title_id from the ArrayList
         binding.itemTitle.text = titleList[title_id].titleText.text
         Glide.with(requireContext()).load(titleList[title_id].primaryImage.url)
             .apply(RequestOptions().centerCrop())

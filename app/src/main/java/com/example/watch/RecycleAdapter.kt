@@ -42,6 +42,7 @@ class RecycleAdapter(val context: Context,  var navController: NavController) : 
     fun setTitleListItems(titleListparam: Data){
         titleList.addAll(titleListparam.results)
         notifyDataSetChanged()
+        //populates array list from the returned object type data into an array list of type result
     }
 
     fun setRecommendationListItems(titleListparam: Data){
@@ -51,14 +52,14 @@ class RecycleAdapter(val context: Context,  var navController: NavController) : 
 
     inner class MyViewHolder(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView) {
 
-        private val title: TextView = itemView!!.findViewById(R.id.item_title)
-        private val image: ImageView = itemView!!.findViewById(R.id.item_image)
+        private var title: TextView = itemView!!.findViewById(R.id.item_title)
+        private var image: ImageView = itemView!!.findViewById(R.id.item_image)
         private var pos:Int = 0
 
         init {
             itemView.setOnClickListener {
                 val action = SearchResultFragmentDirections.actionSearchResultFragmentToCardFragment(pos)
-                navController.navigate(action)
+                navController.navigate(action)//navigates from search result to card fragment with position of the title you clicked
             }
         }
         fun bind(position:Int){

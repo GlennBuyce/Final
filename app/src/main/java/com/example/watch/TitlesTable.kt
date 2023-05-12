@@ -13,22 +13,24 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "titles_table")
 data class TitlesTable(
 
+    //entity class for the database and their parameters
+
     @PrimaryKey(autoGenerate = true)
-    var tableIndex: Int = 0,
+    val tableIndex: Int = 0,
 
     @ColumnInfo(name = "Title")
-    var title: String,
+    val title: String,
 
     @ColumnInfo(name = "IMDB id")
-    var id: String,
+    val id: String,
 
     @ColumnInfo(name = "Image")
-    var imageurl: String,
+    val imageurl: String,
 
     @ColumnInfo(name = "Favorite")
-    var favorite: Boolean,
+    val favorite: Boolean,
 
     @ColumnInfo(name = "Watch")
-    var watch: Boolean
+    val watch: Boolean
     )
 

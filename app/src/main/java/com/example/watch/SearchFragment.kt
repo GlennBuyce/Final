@@ -36,6 +36,8 @@ class SearchFragment : Fragment() {
 
 
 
+        //when the search button is clicked it then translates the displayed text into the API's version so that they can be added to the API call
+        //Forces you to choose a list all others are optional and set to null if nothing is chosen
         _binding!!.search.setOnClickListener {
 
             list = when(_binding!!.listSpinner.selectedItem){

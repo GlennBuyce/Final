@@ -24,6 +24,7 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        //each button is initialized here; they would clear the database of any title with the relevant boolean set to true
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
         _binding!!.ClearFavorites.setOnClickListener {
